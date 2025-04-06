@@ -1,7 +1,3 @@
-Sure Ameya! Here’s a professional and concise README tailored for your project — integrating your tech stack, intelligent features, and clean structure:
-
-⸻
-
 FinSight: Intelligent Financial News Research & Q&A Tool
 
 FinSight is an intelligent Q&A platform that streamlines financial news research by retrieving semantically relevant insights from online articles. Built with LangChain, OpenAI Embeddings, FAISS, and Streamlit, it allows users to query financial content in real-time, enabling informed decision-making.
