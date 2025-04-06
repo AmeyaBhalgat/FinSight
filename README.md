@@ -2,7 +2,6 @@ FinSight: Intelligent Financial News Research & Q&A Tool
 
 FinSight is an intelligent Q&A platform that streamlines financial news research by retrieving semantically relevant insights from online articles. Built with LangChain, OpenAI Embeddings, FAISS, and Streamlit, it allows users to query financial content in real-time, enabling informed decision-making.
 
-⸻
 
 🚀 Features
 	•	🔎 Smart Article Retrieval: Load URLs or upload text files to extract full article content from financial domains.
@@ -11,7 +10,7 @@ FinSight is an intelligent Q&A platform that streamlines financial news research
 	•	⚡ Optimized Performance: Supports LoRA-based fine-tuning for domain-specific enhancement and faster query response.
 	•	🌐 User-Friendly Interface: Clean and responsive UI built using Streamlit.
 
-⸻
+
 
 🛠️ Tech Stack
 	•	LangChain for document loading and LLM orchestration
@@ -21,7 +20,6 @@ FinSight is an intelligent Q&A platform that streamlines financial news research
 	•	LoRA (Low-Rank Adaptation) for optional fine-tuning of the LLM
 	•	Python as the core development language
 
-⸻
 
 🔧 Installation
 	1.	Clone the repo:
@@ -39,7 +37,7 @@ OPENAI_API_KEY=your_openai_key_here
 
 
 
-⸻
+
 
 ▶️ Usage
 
@@ -55,7 +53,6 @@ Workflow:
 	•	Index data using FAISS for fast retrieval
 	•	Ask a question related to the articles — get accurate answers with source references.
 
-⸻
 
 📂 Project Structure
 
@@ -69,7 +66,6 @@ FinSight/
 
 
 
-⸻
 
 🧪 Example URLs to Try
 
@@ -84,6 +80,4 @@ https://www.moneycontrol.com/news/business/stocks/buy-tata-motors-target-of-rs-7
 	•	✨ Implement sentiment analysis on extracted articles using NER + LSTM to classify market sentiment (positive/neutral/negative)
 	•	📈 Predict market trends from news using semantic signals, enabling deeper insights for financial forecasting
 
-⸻
 
-Let me know if you’d like a version with images, badges, or deployed links!
