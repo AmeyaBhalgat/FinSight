@@ -164,19 +164,19 @@ finbert = load_finbert()
 llm     = load_llm()
 
 with st.sidebar:
-    st.header("📂 Add Documents")
+    st.header("Add Documents")
     uploaded_files = st.file_uploader("Upload PDFs", type=["pdf"], accept_multiple_files=True)
     url_input      = st.text_area("Or paste URLs (one per line)")
     build_btn      = st.button("🔨 Build Knowledge Base", type="primary", use_container_width=True)
     st.divider()
     if os.path.exists(LORA_ADAPTER_PATH):
-        st.success("🧠 LoRA fine-tuned model loaded")
+        st.success("LoRA fine-tuned model loaded")
     else:
-        st.warning("⚠️ LoRA adapter not found — using base model")
+        st.warning("LoRA adapter not found — using base model")
     if os.path.exists(FAISS_INDEX_PATH):
-        st.success("✅ Knowledge base ready")
+        st.success("Knowledge base ready")
     else:
-        st.warning("⚠️ No knowledge base yet.")
+        st.warning("No knowledge base yet.")
 
 if build_btn:
     sources = []
@@ -193,7 +193,7 @@ if build_btn:
         with st.spinner("Building knowledge base..."):
             vs, n = build_index(sources)
             st.session_state["vectorstore"] = vs
-        st.success(f"✅ {n} chunks indexed.")
+        st.success(f"{n} chunks indexed.")
         st.rerun()
 
 if "vectorstore" not in st.session_state and os.path.exists(FAISS_INDEX_PATH):
@@ -210,19 +210,19 @@ if "vectorstore" in st.session_state:
         col1, col2 = st.columns([3, 2])
 
         with col1:
-            st.subheader("📝 Answer")
+            st.subheader("Answer")
             with st.spinner("Generating answer..."):
                 answer, sources = get_answer(vs, question, llm)
             st.markdown(answer)
             if sources:
-                with st.expander(f"📚 Sources ({len(sources)} chunks)"):
+                with st.expander(f"Sources ({len(sources)} chunks)"):
                     for i, doc in enumerate(sources):
                         st.markdown(f"**{i+1}.** `{doc.metadata.get('source','?')}` — Page {doc.metadata.get('page','?')}")
                         st.caption(doc.page_content[:300] + "...")
                         st.divider()
 
         with col2:
-            st.subheader("📊 Sentiment")
+            st.subheader("Sentiment")
             with st.spinner("Running FinBERT..."):
                 result = predict_sentiment(finbert, chunks_with_scores)
 
@@ -235,7 +235,7 @@ if "vectorstore" in st.session_state:
 
             st.metric("Aggregate Score (S)", f"{result['score']:+.4f}")
 
-            with st.expander("🔬 Per-Chunk Breakdown"):
+            with st.expander("Per-Chunk Breakdown"):
                 for c in result["details"]:
                     st.markdown(f"**Chunk {c['chunk']}** — `{c['source']}` p.{c['page']}")
                     st.caption(c["preview"])
@@ -251,4 +251,4 @@ if "vectorstore" in st.session_state:
                 st.info(f"S = Σ(delta × weight) / 5 = **{result['score']:+.4f}**")
 
 else:
-    st.info("👈 Upload documents in the sidebar to get started.")
+    st.info("Upload documents in the sidebar to get started.")
