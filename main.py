@@ -146,11 +146,11 @@ def predict_sentiment(finbert, chunks_with_scores: list) -> dict:
     S = total / len(chunks_with_scores)
 
     if S > BULLISH_THRESHOLD:
-        label, emoji = "BULLISH", "🟢"
+        label = "BULLISH"
     elif S < BEARISH_THRESHOLD:
-        label, emoji = "BEARISH", "🔴"
+        label = "BEARISH"
     else:
-        label, emoji = "NEUTRAL", "🟡"
+        label = "NEUTRAL"
 
     return {"label": label, "emoji": emoji, "score": round(S, 4), "details": details}
 
